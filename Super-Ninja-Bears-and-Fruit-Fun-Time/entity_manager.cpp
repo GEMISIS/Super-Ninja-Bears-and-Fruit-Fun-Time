@@ -81,10 +81,14 @@ bool EntityManager::Update(sf::RenderWindow* window)
 	return true;
 }
 
-void EntityManager::Render(sf::RenderWindow* window)
+void EntityManager::Render(sf::RenderWindow* window, bool animate)
 {
 	for (auto& iterator : this->entities)
 	{
+		if (animate)
+		{
+			iterator.second->Render(window);
+		}
 		window->draw(*iterator.second);
 	}
 }

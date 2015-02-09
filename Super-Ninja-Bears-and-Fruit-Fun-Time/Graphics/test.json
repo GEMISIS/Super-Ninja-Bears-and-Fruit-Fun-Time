@@ -1,7 +1,7 @@
 { "height":24,
  "layers":[
         {
-         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 65, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66, 66],
+         "data":[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 82, 83, 83, 83, 83, 83, 83, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 105, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 105, 105, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 105, 105, 105, 105, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 84, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 105, 105, 84, 0, 0, 175, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 125, 170, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 105, 105, 105, 105, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 83, 94, 94, 83, 83, 83, 83, 83, 83, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 92, 92, 92, 92, 92, 149, 149, 149, 149, 149, 149, 149, 177, 177, 177, 177, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 92, 92, 92, 92, 92, 149, 149, 149, 149, 149, 149, 149, 177, 177, 177, 177, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 92, 92, 92, 92, 92, 149, 149, 149, 149, 149, 149, 149, 177, 177, 177, 177, 172, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 163, 165, 94, 94, 129, 92, 92, 92, 92, 92, 149, 149, 149, 149, 149, 149, 149, 164, 164, 164, 164, 164, 164, 164, 164, 164, 154, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 163, 149, 149, 92, 92, 92, 92, 92, 92, 92, 92, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 0, 0, 0, 163, 164, 164, 164, 165, 0, 171, 0, 0, 163, 149, 149, 149, 92, 92, 92, 92, 92, 92, 92, 92, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 91, 91, 91, 149, 149, 149, 149, 149, 164, 164, 164, 164, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149, 149],
          "height":24,
          "name":"Tile Layer 1",
          "opacity":1,
@@ -18,12 +18,12 @@
 
     },
  "renderorder":"right-down",
- "tileheight":64,
+ "tileheight":70,
  "tilesets":[
         {
          "firstgid":1,
          "margin":0,
-         "name":"test",
+         "name":"Ground",
          "properties":
             {
 
@@ -35,6 +35,521 @@
                  "tile":-1
                 }],
          "tileheight":146,
+         "tileproperties":
+            {
+             "103":
+                {
+                 "group":"1"
+                },
+             "104":
+                {
+                 "group":"1"
+                },
+             "105":
+                {
+                 "group":"1"
+                },
+             "106":
+                {
+                 "group":"1"
+                },
+             "107":
+                {
+                 "group":"1"
+                },
+             "108":
+                {
+                 "group":"1"
+                },
+             "109":
+                {
+                 "group":"1"
+                },
+             "110":
+                {
+                 "group":"1"
+                },
+             "111":
+                {
+                 "group":"1"
+                },
+             "112":
+                {
+                 "group":"1"
+                },
+             "113":
+                {
+                 "group":"1"
+                },
+             "114":
+                {
+                 "group":"1"
+                },
+             "115":
+                {
+                 "group":"1"
+                },
+             "116":
+                {
+                 "group":"1"
+                },
+             "117":
+                {
+                 "group":"1"
+                },
+             "118":
+                {
+                 "group":"1"
+                },
+             "119":
+                {
+                 "group":"1"
+                },
+             "120":
+                {
+                 "group":"1"
+                },
+             "121":
+                {
+                 "group":"1"
+                },
+             "122":
+                {
+                 "group":"1"
+                },
+             "127":
+                {
+                 "group":"1"
+                },
+             "128":
+                {
+                 "group":"1"
+                },
+             "129":
+                {
+                 "group":"1"
+                },
+             "130":
+                {
+                 "group":"1"
+                },
+             "131":
+                {
+                 "group":"1"
+                },
+             "132":
+                {
+                 "group":"1"
+                },
+             "133":
+                {
+                 "group":"1"
+                },
+             "134":
+                {
+                 "group":"1"
+                },
+             "135":
+                {
+                 "group":"1"
+                },
+             "136":
+                {
+                 "group":"1"
+                },
+             "137":
+                {
+                 "group":"1"
+                },
+             "138":
+                {
+                 "group":"1"
+                },
+             "139":
+                {
+                 "group":"1"
+                },
+             "140":
+                {
+                 "group":"1"
+                },
+             "141":
+                {
+                 "group":"1"
+                },
+             "142":
+                {
+                 "group":"1"
+                },
+             "143":
+                {
+                 "group":"1"
+                },
+             "144":
+                {
+                 "group":"1"
+                },
+             "145":
+                {
+                 "group":"1"
+                },
+             "146":
+                {
+                 "group":"1"
+                },
+             "147":
+                {
+                 "group":"1"
+                },
+             "148":
+                {
+                 "group":"1"
+                },
+             "149":
+                {
+                 "group":"1"
+                },
+             "150":
+                {
+                 "group":"1"
+                },
+             "151":
+                {
+                 "group":"1"
+                },
+             "152":
+                {
+                 "group":"1"
+                },
+             "153":
+                {
+                 "group":"1"
+                },
+             "154":
+                {
+                 "group":"1"
+                },
+             "155":
+                {
+                 "group":"1"
+                },
+             "156":
+                {
+                 "group":"1"
+                },
+             "157":
+                {
+                 "group":"1"
+                },
+             "158":
+                {
+                 "group":"1"
+                },
+             "159":
+                {
+                 "group":"1"
+                },
+             "160":
+                {
+                 "group":"1"
+                },
+             "161":
+                {
+                 "group":"1"
+                },
+             "162":
+                {
+                 "group":"1"
+                },
+             "163":
+                {
+                 "group":"1"
+                },
+             "164":
+                {
+                 "group":"1"
+                },
+             "165":
+                {
+                 "group":"1"
+                },
+             "169":
+                {
+                 "group":"4",
+                 "nextArea":"level2.json",
+                 "nextAreaEntry":"A"
+                },
+             "18":
+                {
+                 "group":"1"
+                },
+             "19":
+                {
+                 "group":"1"
+                },
+             "20":
+                {
+                 "group":"1"
+                },
+             "21":
+                {
+                 "group":"1"
+                },
+             "22":
+                {
+                 "group":"1"
+                },
+             "23":
+                {
+                 "group":"1"
+                },
+             "24":
+                {
+                 "group":"1"
+                },
+             "25":
+                {
+                 "group":"1"
+                },
+             "26":
+                {
+                 "group":"1"
+                },
+             "27":
+                {
+                 "group":"1"
+                },
+             "28":
+                {
+                 "group":"1"
+                },
+             "29":
+                {
+                 "group":"1"
+                },
+             "30":
+                {
+                 "group":"1"
+                },
+             "31":
+                {
+                 "group":"1"
+                },
+             "32":
+                {
+                 "group":"1"
+                },
+             "33":
+                {
+                 "group":"1"
+                },
+             "34":
+                {
+                 "group":"1"
+                },
+             "35":
+                {
+                 "group":"1"
+                },
+             "36":
+                {
+                 "group":"1"
+                },
+             "37":
+                {
+                 "group":"1"
+                },
+             "38":
+                {
+                 "group":"1"
+                },
+             "39":
+                {
+                 "group":"1"
+                },
+             "40":
+                {
+                 "group":"1"
+                },
+             "41":
+                {
+                 "group":"1"
+                },
+             "42":
+                {
+                 "group":"1"
+                },
+             "43":
+                {
+                 "group":"1"
+                },
+             "44":
+                {
+                 "group":"1"
+                },
+             "45":
+                {
+                 "group":"1"
+                },
+             "46":
+                {
+                 "group":"1"
+                },
+             "47":
+                {
+                 "group":"1"
+                },
+             "48":
+                {
+                 "group":"1"
+                },
+             "49":
+                {
+                 "group":"1"
+                },
+             "50":
+                {
+                 "group":"1"
+                },
+             "51":
+                {
+                 "group":"1"
+                },
+             "52":
+                {
+                 "group":"1"
+                },
+             "53":
+                {
+                 "group":"1"
+                },
+             "54":
+                {
+                 "group":"1"
+                },
+             "55":
+                {
+                 "group":"1"
+                },
+             "56":
+                {
+                 "group":"1"
+                },
+             "57":
+                {
+                 "group":"1"
+                },
+             "64":
+                {
+                 "group":"1"
+                },
+             "65":
+                {
+                 "group":"1"
+                },
+             "66":
+                {
+                 "group":"1"
+                },
+             "67":
+                {
+                 "group":"1"
+                },
+             "68":
+                {
+                 "group":"1"
+                },
+             "69":
+                {
+                 "group":"1"
+                },
+             "70":
+                {
+                 "group":"1"
+                },
+             "71":
+                {
+                 "group":"1"
+                },
+             "72":
+                {
+                 "group":"1"
+                },
+             "73":
+                {
+                 "group":"1"
+                },
+             "74":
+                {
+                 "group":"1"
+                },
+             "75":
+                {
+                 "group":"1"
+                },
+             "76":
+                {
+                 "group":"1"
+                },
+             "77":
+                {
+                 "group":"1"
+                },
+             "78":
+                {
+                 "group":"1"
+                },
+             "79":
+                {
+                 "group":"1"
+                },
+             "80":
+                {
+                 "group":"1"
+                },
+             "81":
+                {
+                 "group":"1"
+                },
+             "82":
+                {
+                 "group":"1"
+                },
+             "83":
+                {
+                 "group":"1"
+                },
+             "88":
+                {
+                 "group":"3",
+                 "wavy":"true"
+                },
+             "89":
+                {
+                 "group":"3",
+                 "wavy":"true"
+                },
+             "90":
+                {
+                 "group":"3",
+                 "wavy":"true"
+                },
+             "91":
+                {
+                 "group":"2",
+                 "wavy":"true"
+                },
+             "92":
+                {
+                 "group":"2",
+                 "wavy":"true"
+                },
+             "93":
+                {
+                 "group":"2",
+                 "wavy":"true"
+                }
+            },
          "tiles":
             {
              "0":
@@ -51,43 +566,43 @@
                 },
              "100":
                 {
-                 "image":"Tiles\/rockHillLeft.png"
+                 "image":"Tiles\/ropeAttached.png"
                 },
              "101":
                 {
-                 "image":"Tiles\/rockHillRight.png"
+                 "image":"Tiles\/ropeHorizontal.png"
                 },
              "102":
                 {
-                 "image":"Tiles\/ropeAttached.png"
+                 "image":"Tiles\/ropeVertical.png"
                 },
              "103":
                 {
-                 "image":"Tiles\/ropeHorizontal.png"
+                 "image":"Tiles\/sand.png"
                 },
              "104":
                 {
-                 "image":"Tiles\/ropeVertical.png"
+                 "image":"Tiles\/sandCenter.png"
                 },
              "105":
                 {
-                 "image":"Tiles\/sand.png"
+                 "image":"Tiles\/sandCenter_rounded.png"
                 },
              "106":
                 {
-                 "image":"Tiles\/sandCenter.png"
+                 "image":"Tiles\/sandCliffLeft.png"
                 },
              "107":
                 {
-                 "image":"Tiles\/sandCenter_rounded.png"
+                 "image":"Tiles\/sandCliffLeftAlt.png"
                 },
              "108":
                 {
-                 "image":"Tiles\/sandCliffLeft.png"
+                 "image":"Tiles\/sandCliffRight.png"
                 },
              "109":
                 {
-                 "image":"Tiles\/sandCliffLeftAlt.png"
+                 "image":"Tiles\/sandCliffRightAlt.png"
                 },
              "11":
                 {
@@ -95,43 +610,43 @@
                 },
              "110":
                 {
-                 "image":"Tiles\/sandCliffRight.png"
+                 "image":"Tiles\/sandHalf.png"
                 },
              "111":
                 {
-                 "image":"Tiles\/sandCliffRightAlt.png"
+                 "image":"Tiles\/sandHalfLeft.png"
                 },
              "112":
                 {
-                 "image":"Tiles\/sandHalf.png"
+                 "image":"Tiles\/sandHalfMid.png"
                 },
              "113":
                 {
-                 "image":"Tiles\/sandHalfLeft.png"
+                 "image":"Tiles\/sandHalfRight.png"
                 },
              "114":
                 {
-                 "image":"Tiles\/sandHalfMid.png"
+                 "image":"Tiles\/sandHillLeft.png"
                 },
              "115":
                 {
-                 "image":"Tiles\/sandHalfRight.png"
+                 "image":"Tiles\/sandHillLeft2.png"
                 },
              "116":
                 {
-                 "image":"Tiles\/sandHillLeft.png"
+                 "image":"Tiles\/sandHillRight.png"
                 },
              "117":
                 {
-                 "image":"Tiles\/sandHillLeft2.png"
+                 "image":"Tiles\/sandHillRight2.png"
                 },
              "118":
                 {
-                 "image":"Tiles\/sandHillRight.png"
+                 "image":"Tiles\/sandLedgeLeft.png"
                 },
              "119":
                 {
-                 "image":"Tiles\/sandHillRight2.png"
+                 "image":"Tiles\/sandLedgeRight.png"
                 },
              "12":
                 {
@@ -139,43 +654,43 @@
                 },
              "120":
                 {
-                 "image":"Tiles\/sandLedgeLeft.png"
+                 "image":"Tiles\/sandLeft.png"
                 },
              "121":
                 {
-                 "image":"Tiles\/sandLedgeRight.png"
+                 "image":"Tiles\/sandMid.png"
                 },
              "122":
                 {
-                 "image":"Tiles\/sandLeft.png"
+                 "image":"Tiles\/sandRight.png"
                 },
              "123":
                 {
-                 "image":"Tiles\/sandMid.png"
+                 "image":"Tiles\/sign.png"
                 },
              "124":
                 {
-                 "image":"Tiles\/sandRight.png"
+                 "image":"Tiles\/signExit.png"
                 },
              "125":
                 {
-                 "image":"Tiles\/sign.png"
+                 "image":"Tiles\/signLeft.png"
                 },
              "126":
                 {
-                 "image":"Tiles\/signExit.png"
+                 "image":"Tiles\/signRight.png"
                 },
              "127":
                 {
-                 "image":"Tiles\/signLeft.png"
+                 "image":"Tiles\/snow.png"
                 },
              "128":
                 {
-                 "image":"Tiles\/signRight.png"
+                 "image":"Tiles\/snowCenter.png"
                 },
              "129":
                 {
-                 "image":"Tiles\/snow.png"
+                 "image":"Tiles\/snowCenter_rounded.png"
                 },
              "13":
                 {
@@ -183,43 +698,43 @@
                 },
              "130":
                 {
-                 "image":"Tiles\/snowCenter.png"
+                 "image":"Tiles\/snowCliffLeft.png"
                 },
              "131":
                 {
-                 "image":"Tiles\/snowCenter_rounded.png"
+                 "image":"Tiles\/snowCliffLeftAlt.png"
                 },
              "132":
                 {
-                 "image":"Tiles\/snowCliffLeft.png"
+                 "image":"Tiles\/snowCliffRight.png"
                 },
              "133":
                 {
-                 "image":"Tiles\/snowCliffLeftAlt.png"
+                 "image":"Tiles\/snowCliffRightAlt.png"
                 },
              "134":
                 {
-                 "image":"Tiles\/snowCliffRight.png"
+                 "image":"Tiles\/snowHalf.png"
                 },
              "135":
                 {
-                 "image":"Tiles\/snowCliffRightAlt.png"
+                 "image":"Tiles\/snowHalfLeft.png"
                 },
              "136":
                 {
-                 "image":"Tiles\/snowHalf.png"
+                 "image":"Tiles\/snowHalfMid.png"
                 },
              "137":
                 {
-                 "image":"Tiles\/snowHalfLeft.png"
+                 "image":"Tiles\/snowHalfRight.png"
                 },
              "138":
                 {
-                 "image":"Tiles\/snowHalfMid.png"
+                 "image":"Tiles\/snowHillLeft.png"
                 },
              "139":
                 {
-                 "image":"Tiles\/snowHalfRight.png"
+                 "image":"Tiles\/snowHillLeft2.png"
                 },
              "14":
                 {
@@ -227,43 +742,43 @@
                 },
              "140":
                 {
-                 "image":"Tiles\/snowHillLeft.png"
+                 "image":"Tiles\/snowHillRight.png"
                 },
              "141":
                 {
-                 "image":"Tiles\/snowHillLeft2.png"
+                 "image":"Tiles\/snowHillRight2.png"
                 },
              "142":
                 {
-                 "image":"Tiles\/snowHillRight.png"
+                 "image":"Tiles\/snowLedgeLeft.png"
                 },
              "143":
                 {
-                 "image":"Tiles\/snowHillRight2.png"
+                 "image":"Tiles\/snowLedgeRight.png"
                 },
              "144":
                 {
-                 "image":"Tiles\/snowLedgeLeft.png"
+                 "image":"Tiles\/snowLeft.png"
                 },
              "145":
                 {
-                 "image":"Tiles\/snowLedgeRight.png"
+                 "image":"Tiles\/snowMid.png"
                 },
              "146":
                 {
-                 "image":"Tiles\/snowLeft.png"
+                 "image":"Tiles\/snowRight.png"
                 },
              "147":
                 {
-                 "image":"Tiles\/snowMid.png"
+                 "image":"Tiles\/stone.png"
                 },
              "148":
                 {
-                 "image":"Tiles\/snowRight.png"
+                 "image":"Tiles\/stoneCenter.png"
                 },
              "149":
                 {
-                 "image":"Tiles\/stone.png"
+                 "image":"Tiles\/stoneCenter_rounded.png"
                 },
              "15":
                 {
@@ -271,43 +786,43 @@
                 },
              "150":
                 {
-                 "image":"Tiles\/stoneCenter.png"
+                 "image":"Tiles\/stoneCliffLeft.png"
                 },
              "151":
                 {
-                 "image":"Tiles\/stoneCenter_rounded.png"
+                 "image":"Tiles\/stoneCliffLeftAlt.png"
                 },
              "152":
                 {
-                 "image":"Tiles\/stoneCliffLeft.png"
+                 "image":"Tiles\/stoneCliffRight.png"
                 },
              "153":
                 {
-                 "image":"Tiles\/stoneCliffLeftAlt.png"
+                 "image":"Tiles\/stoneCliffRightAlt.png"
                 },
              "154":
                 {
-                 "image":"Tiles\/stoneCliffRight.png"
+                 "image":"Tiles\/stoneHalf.png"
                 },
              "155":
                 {
-                 "image":"Tiles\/stoneCliffRightAlt.png"
+                 "image":"Tiles\/stoneHalfLeft.png"
                 },
              "156":
                 {
-                 "image":"Tiles\/stoneHalf.png"
+                 "image":"Tiles\/stoneHalfMid.png"
                 },
              "157":
                 {
-                 "image":"Tiles\/stoneHalfLeft.png"
+                 "image":"Tiles\/stoneHalfRight.png"
                 },
              "158":
                 {
-                 "image":"Tiles\/stoneHalfMid.png"
+                 "image":"Tiles\/stoneHillLeft2.png"
                 },
              "159":
                 {
-                 "image":"Tiles\/stoneHalfRight.png"
+                 "image":"Tiles\/stoneHillRight2.png"
                 },
              "16":
                 {
@@ -315,55 +830,47 @@
                 },
              "160":
                 {
-                 "image":"Tiles\/stoneHillLeft2.png"
+                 "image":"Tiles\/stoneLedgeLeft.png"
                 },
              "161":
                 {
-                 "image":"Tiles\/stoneHillRight2.png"
+                 "image":"Tiles\/stoneLedgeRight.png"
                 },
              "162":
                 {
-                 "image":"Tiles\/stoneLedgeLeft.png"
+                 "image":"Tiles\/stoneLeft.png"
                 },
              "163":
                 {
-                 "image":"Tiles\/stoneLedgeRight.png"
+                 "image":"Tiles\/stoneMid.png"
                 },
              "164":
                 {
-                 "image":"Tiles\/stoneLeft.png"
+                 "image":"Tiles\/stoneRight.png"
                 },
              "165":
                 {
-                 "image":"Tiles\/stoneMid.png"
+                 "image":"Tiles\/stoneWall.png"
                 },
              "166":
                 {
-                 "image":"Tiles\/stoneRight.png"
+                 "image":"Tiles\/tochLit.png"
                 },
              "167":
                 {
-                 "image":"Tiles\/stoneWall.png"
+                 "image":"Tiles\/tochLit2.png"
                 },
              "168":
                 {
-                 "image":"Tiles\/tochLit.png"
+                 "image":"Tiles\/torch.png"
                 },
              "169":
                 {
-                 "image":"Tiles\/tochLit2.png"
+                 "image":"Tiles\/window.png"
                 },
              "17":
                 {
                  "image":"Tiles\/bridgeLogs.png"
-                },
-             "170":
-                {
-                 "image":"Tiles\/torch.png"
-                },
-             "171":
-                {
-                 "image":"Tiles\/window.png"
                 },
              "18":
                 {
@@ -659,27 +1166,27 @@
                 },
              "84":
                 {
-                 "image":"Tiles\/hill_large.png"
+                 "image":"Tiles\/hill_largeAlt.png"
                 },
              "85":
                 {
-                 "image":"Tiles\/hill_largeAlt.png"
+                 "image":"Tiles\/hill_smallAlt.png"
                 },
              "86":
                 {
-                 "image":"Tiles\/hill_small.png"
+                 "image":"Tiles\/ladder_mid.png"
                 },
              "87":
                 {
-                 "image":"Tiles\/hill_smallAlt.png"
+                 "image":"Tiles\/ladder_top.png"
                 },
              "88":
                 {
-                 "image":"Tiles\/ladder_mid.png"
+                 "image":"Tiles\/liquidLava.png"
                 },
              "89":
                 {
-                 "image":"Tiles\/ladder_top.png"
+                 "image":"Tiles\/liquidLavaTop.png"
                 },
              "9":
                 {
@@ -687,48 +1194,164 @@
                 },
              "90":
                 {
-                 "image":"Tiles\/liquidLava.png"
+                 "image":"Tiles\/liquidLavaTop_mid.png"
                 },
              "91":
                 {
-                 "image":"Tiles\/liquidLavaTop.png"
+                 "image":"Tiles\/liquidWater.png"
                 },
              "92":
                 {
-                 "image":"Tiles\/liquidLavaTop_mid.png"
+                 "image":"Tiles\/liquidWaterTop.png"
                 },
              "93":
                 {
-                 "image":"Tiles\/liquidWater.png"
+                 "image":"Tiles\/liquidWaterTop_mid.png"
                 },
              "94":
                 {
-                 "image":"Tiles\/liquidWaterTop.png"
+                 "image":"Tiles\/lock_blue.png"
                 },
              "95":
                 {
-                 "image":"Tiles\/liquidWaterTop_mid.png"
+                 "image":"Tiles\/lock_green.png"
                 },
              "96":
                 {
-                 "image":"Tiles\/lock_blue.png"
+                 "image":"Tiles\/lock_red.png"
                 },
              "97":
                 {
-                 "image":"Tiles\/lock_green.png"
+                 "image":"Tiles\/lock_yellow.png"
                 },
              "98":
                 {
-                 "image":"Tiles\/lock_red.png"
+                 "image":"Tiles\/rockHillLeft.png"
                 },
              "99":
                 {
-                 "image":"Tiles\/lock_yellow.png"
+                 "image":"Tiles\/rockHillRight.png"
+                }
+            },
+         "tilewidth":70
+        }, 
+        {
+         "firstgid":171,
+         "margin":0,
+         "name":"NPC",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":146,
+         "tileproperties":
+            {
+             "0":
+                {
+                 "text":"I hear there's treasure beyond here!"
+                },
+             "1":
+                {
+                 "text":"Aww, they're only bronze coins..."
+                },
+             "2":
+                {
+                 "text":"You found my secret room!"
+                },
+             "3":
+                {
+                 "text":"I hear there's treasure beyond here!"
+                }
+            },
+         "tiles":
+            {
+             "0":
+                {
+                 "image":"sprites\/hilly.png"
+                },
+             "1":
+                {
+                 "image":"sprites\/hilly.png"
+                },
+             "2":
+                {
+                 "image":"sprites\/ninja a.png"
+                },
+             "3":
+                {
+                 "image":"sprites\/hilly.png"
+                }
+            },
+         "tilewidth":48
+        }, 
+        {
+         "firstgid":175,
+         "margin":0,
+         "name":"Mobs",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":88,
+         "tiles":
+            {
+             "0":
+                {
+                 "image":"sprites\/idle.PNG"
+                }
+            },
+         "tilewidth":88
+        }, 
+        {
+         "firstgid":176,
+         "margin":0,
+         "name":"Collectibles",
+         "properties":
+            {
+
+            },
+         "spacing":0,
+         "tileheight":70,
+         "tiles":
+            {
+             "0":
+                {
+                 "image":"sprites\/guava.png"
+                },
+             "1":
+                {
+                 "image":"sprites\/coinBronze.png"
+                },
+             "2":
+                {
+                 "image":"sprites\/coinGold.png"
+                },
+             "3":
+                {
+                 "image":"sprites\/coinSilver.png"
+                },
+             "4":
+                {
+                 "image":"sprites\/gemBlue.png"
+                },
+             "5":
+                {
+                 "image":"sprites\/gemGreen.png"
+                },
+             "6":
+                {
+                 "image":"sprites\/gemRed.png"
+                },
+             "7":
+                {
+                 "image":"sprites\/gemYellow.png"
                 }
             },
          "tilewidth":70
         }],
- "tilewidth":64,
+ "tilewidth":70,
  "version":1,
  "width":40
 }

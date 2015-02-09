@@ -4,18 +4,23 @@ Bullet::Bullet(Map* map, float x, float y, float direction, float distance)
 {
 	this->active = 1;
 	this->groupId = 2;
-	this->Load("ship.png");
+	this->Load("sprites/shuriken.png");
 	this->setColor(sf::Color::Transparent);
-	this->setScale(0.25f, 0.25f);
 	this->velocity.x = cos(direction / 180.0f * 3.14f) * 3;
 	this->velocity.y = sin(direction / 180.0f * 3.14f) * 3;
-	this->setPosition(x + this->getGlobalBounds().width, y + this->getGlobalBounds().height);
+	position = sf::Vector2f(x + this->getGlobalBounds().width, y + this->getGlobalBounds().height);
+	this->setPosition(this->position.x - Entity::scroll.x, this->position.y - Entity::scroll.y);
+	this->setOrigin(this->getGlobalBounds().width / 2, this->getGlobalBounds().height / 2);
+	this->setScale(0.5f, 0.5f);
 	this->distance = distance;
 	this->map = map;
 }
 
 bool Bullet::Update(sf::RenderWindow* window)
 {
+	this->position += this->velocity;
+	this->setPosition(this->position.x - Entity::scroll.x, this->position.y - Entity::scroll.y);
+	this->rotate(this->velocity.x);
 	if (this->getPosition().y <= 0 || this->getPosition().y + this->getGlobalBounds().height >= window->getSize().y)
 	{
 		this->Destroy();
@@ -25,11 +30,10 @@ bool Bullet::Update(sf::RenderWindow* window)
 	{
 		this->Destroy();
 	}
-	if(this->map->CheckCollision(this, NONE) > 2)
+	if (this->map->CheckCollision(this, NONE).group != NO_GROUP && this->map->CheckCollision(this, NONE).group != WATER && this->map->CheckCollision(this, NONE).group != EXIT)
 	{
 		this->Destroy();
 	}
-	Entity::Update(window);
 	return true;
 }
 

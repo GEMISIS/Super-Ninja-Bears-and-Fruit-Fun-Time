@@ -10,6 +10,7 @@ public:
 	void Render(sf::RenderWindow* window);
 	void Destroy(sf::RenderWindow* window);
 private:
+	sf::Font* font;
 	sf::Text* winText;
 	bool enterKey;
 };

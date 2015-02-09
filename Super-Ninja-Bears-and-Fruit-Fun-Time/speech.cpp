@@ -32,3 +32,8 @@ void Speech::Render()
 		this->window->draw((sf::Text)*this);
 	}
 }
+
+Speech::~Speech()
+{
+	delete this->texture;
+}

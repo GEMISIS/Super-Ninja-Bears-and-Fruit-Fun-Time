@@ -1,15 +1,21 @@
 #include "main_game.h"
 #include "enemy.h"
 
-enemy::enemy(Map* map, float x, float y)
+enemy::enemy(Map* map, std::string gfx, float x, float y, sf::IntRect rect)
 {
 	this->position = sf::Vector2f(x, y);
-	this->Load("ship.png");
+	this->Load(gfx, rect);
 	this->setPosition(x, y);
-	this->setColor(sf::Color::Red);
 	this->map = map;
 	this->groupId = 5;
 	this->health = 1;
+	this->velocity = sf::Vector2f(0, 0);
+}
+
+void enemy::offset(float x, float y)
+{
+	this->position.x += x;
+	this->position.y += y;
 }
 
 bool enemy::Update(sf::RenderWindow* window)
@@ -19,7 +25,7 @@ bool enemy::Update(sf::RenderWindow* window)
 	{
 		this->Destroy();
 	}
-	Entity::Update(window);
+	this->offset(this->velocity.x, this->velocity.y);
 	return true;
 }
 

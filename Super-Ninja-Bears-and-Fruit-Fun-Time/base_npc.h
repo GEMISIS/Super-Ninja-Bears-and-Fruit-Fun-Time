@@ -6,7 +6,8 @@
 class base_npc : public Entity
 {
 public:
-	base_npc(Speech* speech, Map* map, float x, float y);
+	base_npc(Speech* speech, std::string gfx, Map* map, std::string text, float x, float y);
+	void offset(float x, float y);
 	bool Update(sf::RenderWindow* window);
 	void Collision(Entity* entity);
 protected:

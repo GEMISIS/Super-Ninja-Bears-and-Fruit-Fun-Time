@@ -6,9 +6,18 @@
 game_state coreState; 
 bool quitGame = false;
 
+#ifdef _DEBUG
 int main()
+#else
+int WINAPI WinMain(
+	_In_  HINSTANCE hInstance,
+	_In_opt_  HINSTANCE hPrevInstance,
+	_In_  LPSTR lpCmdLine,
+	_In_  int nCmdShow
+	)
+#endif
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 768), "Jumper");
+	sf::RenderWindow window(sf::VideoMode(1280, 768), "Super Ninja Bears and Fruit Fun Time");
 
 	coreState.SetWindow(&window);
 	coreState.SetState(new main_menu());

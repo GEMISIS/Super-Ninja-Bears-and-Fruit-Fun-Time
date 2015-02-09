@@ -4,10 +4,10 @@
 void win_screen::Initialize(sf::RenderWindow* window)
 {
 	enterKey = false;
-	sf::Font* font = new sf::Font();
-	font->loadFromFile("Graphics/font.ttf");
+	this->font = new sf::Font();
+	this->font->loadFromFile("Graphics/font.ttf");
 
-	this->winText = new sf::Text("You Win", *font, 100U);
+	this->winText = new sf::Text("You Win", *this->font, 100U);
 	this->winText->setColor(sf::Color::Green);
 	this->winText->setOrigin(sf::Vector2f(this->winText->getGlobalBounds().width / 2, this->winText->getGlobalBounds().height / 2));
 	this->winText->setPosition(sf::Vector2f(window->getSize().x / 2, window->getSize().y / 2));
@@ -26,5 +26,6 @@ void win_screen::Render(sf::RenderWindow* window)
 }
 void win_screen::Destroy(sf::RenderWindow* window)
 {
+	delete this->font;
 	delete this->winText;
 }

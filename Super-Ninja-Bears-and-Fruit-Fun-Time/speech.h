@@ -9,6 +9,7 @@ public:
 	bool speaking;
 	void SetText(std::string text);
 	void Render();
+	~Speech();
 private:
 	sf::Texture* texture;
 	sf::RenderWindow* window;

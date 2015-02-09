@@ -5,9 +5,8 @@
 class Mob2 : public enemy
 {
 public:
-	Mob2(Map* map, float x, float y) : enemy(map, x, y)
+	Mob2(Map* map, float x, float y) : enemy(map, "sprites/ninja b.png", x, y)
 	{
 		this->health = 3;
-		this->setColor(sf::Color::Yellow);
 	}
 };

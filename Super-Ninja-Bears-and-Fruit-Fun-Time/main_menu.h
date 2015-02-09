@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SFML/Audio.hpp>
+
 #include "game_state.h"
 
 class main_menu : public tiny_state
@@ -11,11 +13,15 @@ public:
 	void Destroy(sf::RenderWindow* window);
 private:
 	sf::Font* font;
-	sf::Text* title;
+	sf::Texture* titleTexture;
+	sf::Sprite* title;
 	sf::Text* play;
 	sf::Text* quit;
 
 	int selected;
 
 	bool upKey, downKey;
+
+	sf::SoundBuffer* backgroundMusicBuffer;
+	sf::Sound* backgroundMusic;
 };

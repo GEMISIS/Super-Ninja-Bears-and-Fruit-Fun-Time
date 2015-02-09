@@ -1,5 +1,7 @@
 #pragma once
 
+#include <SFML/Audio.hpp>
+
 #include "entity_manager.h"
 #include "game_state.h"
 #include "score.h"
@@ -36,4 +38,7 @@ private:
 	EntityManager* manager;
 
 	Map* map;
+
+	sf::SoundBuffer* backgroundMusicBuffer;
+	sf::Sound* backgroundMusic;
 };

@@ -14,7 +14,7 @@ public:
 	Entity* Get(std::string name);
 
 	bool Update(sf::RenderWindow* window);
-	void Render(sf::RenderWindow* window);
+	void Render(sf::RenderWindow* window, bool animate);
 
 	~EntityManager();
 private:

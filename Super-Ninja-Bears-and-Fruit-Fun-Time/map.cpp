@@ -5,9 +5,15 @@
 #include "map.h"
 #include "npc1.h"
 #include "npc2.h"
+
+#include "enemy.h"
 #include "mob1.h"
 #include "mob2.h"
-#include "enemy.h"
+
+#include "collectible.h"
+#include "guava.h"
+#include "bronze_coin.h"
+#include "silver_coin.h"
 
 #include "rapidjson/document.h"
 #include "rapidjson/writer.h"
@@ -17,18 +23,18 @@ using namespace rapidjson;
 
 Map::Map(EntityManager* entityManager)
 {
-	this->texture = new sf::Texture();
 	this->backgroundTexture = new sf::Texture();
-	this->tiles = std::unordered_map<std::string, sf::Image*>();
-	this->mapTiles = new sf::Sprite();
+	this->tiles = std::unordered_map<int, sf::Image*>();
 	this->entityManager = entityManager;
 	this->background = new sf::Sprite();
 }
 
 void Map::Load(std::string filename, std::string backgroundFile, Speech* speech)
 {
-	this->backgroundTexture->loadFromFile(backgroundFile);
+	this->backgroundTexture->loadFromFile("Graphics/Backgrounds/" + backgroundFile);
+	this->backgroundTexture->setRepeated(true);
 	this->background->setTexture(*this->backgroundTexture);
+	this->background->scale(2.0f, 2.0f);
 
 	std::ifstream mapFile("Graphics/maps/" + filename);
 	std::string mapFileData((std::istreambuf_iterator<char>(mapFile)),
@@ -41,82 +47,216 @@ void Map::Load(std::string filename, std::string backgroundFile, Speech* speech)
 	this->tileWidth = mapFileDoc["tilewidth"].GetInt();
 	this->tileHeight = mapFileDoc["tileheight"].GetInt();
 
-	Value& data = mapFileDoc["layers"][0]["data"];
-	this->data = new int[this->width * this->height];
-	for (int y = 0; y < this->height; y += 1)
+	Value& dataArray = mapFileDoc["layers"];
+	if (dataArray.IsArray())
 	{
-		for (int x = 0; x < this->width; x += 1)
+		for (int i = 0; i < dataArray.Capacity(); i += 1)
 		{
-			this->data[x + y * this->width] = data[x + y * this->width].GetInt();
+			Value& data = dataArray[i]["data"];
+
+			int* tempData = new int[this->width * this->height];
+			for (int y = 0; y < this->height; y += 1)
+			{
+				for (int x = 0; x < this->width; x += 1)
+				{
+					tempData[x + y * this->width] = data[x + y * this->width].GetInt();
+				}
+			}
+			std::cout << i << std::endl;
+			std::pair<std::string, int*> tempPair(dataArray[i]["name"].GetString(), tempData);
+			this->data.insert(tempPair);
 		}
 	}
 
-	this->texture->create(this->width * this->tileWidth, this->height * this->tileHeight);
+	int groundTileSet = -1;
+	int npcTileSet = -1;
+	int mobsTileSet = -1;
+	int collectTileSet = -1;
 
-	Value& tileData = mapFileDoc["tilesets"][0]["tiles"];
-	for (Value::ConstMemberIterator iterator = tileData.MemberBegin(); iterator != tileData.MemberEnd(); iterator += 1)
+	Value& tileList = mapFileDoc["tilesets"];
+	if (tileList.IsArray())
 	{
-		sf::Image* temp = new sf::Image();
-		temp->loadFromFile(iterator->value["image"].GetString());
-		std::pair<std::string, sf::Image*> tempPair(iterator->name.GetString(), temp);
-		this->tiles.insert(tempPair);
-	}
-
-	for (int y = 0; y < this->height; y += 1)
-	{
-		for (int x = 0; x < this->width; x += 1)
+		for (int i = 0; i < tileList.Capacity(); i += 1)
 		{
-			switch (this->data[x + y * this->width])
+			std::string name = mapFileDoc["tilesets"][i]["name"].GetString();
+			if (name == "Ground")
 			{
-			case 0:
-				break;
-			case 1:
-				this->texture->update(tile1, x * 64, y * 64);
-				break;
-			case 2:
-				this->texture->update(tile2, x * 64, y * 64);
-				break;
-			case 3:
-				this->texture->update(tile3, x * 64, y * 64);
-				break;
-			case 4:
-				this->texture->update(tile4, x * 64, y * 64);
-				break;
-			case 5:
-				this->texture->update(tile5, x * 64, y * 64);
-				break;
-			case 6:
-				this->entityManager->Add("npc1", new Npc1(speech, this, x * 64, y * 64 + 32));
-				this->data[x + y * this->width] = 0;
-				break;
-			case 7:
-				this->entityManager->Add("npc2", new Npc2(speech, this, x * 64, y * 64 + 32));
-				this->data[x + y * this->width] = 0;
-				break;
-			case 8:
-				this->entityManager->Add("mob1", new Mob1(this, x * 64, y * 64 + 32));
-				this->data[x + y * this->width] = 0;
-				break;
-			case 9:
-				this->entityManager->Add("mob2", new Mob2(this, x * 64, y * 64 + 32));
-				this->data[x + y * this->width] = 0;
-				break;
+				groundTileSet = i;
+			}
+			if (name == "NPC")
+			{
+				npcTileSet = i;
+			}
+			if (name == "Mobs")
+			{
+				mobsTileSet = i;
+			}
+			if (name == "Collectibles")
+			{
+				collectTileSet = i;
+			}
+
+			if (i == groundTileSet)
+			{
+				Value& tileData = mapFileDoc["tilesets"][i]["tiles"];
+				int firstgid = mapFileDoc["tilesets"][i]["firstgid"].GetInt();
+				for (Value::ConstMemberIterator iterator = tileData.MemberBegin(); iterator != tileData.MemberEnd(); iterator += 1)
+				{
+					sf::Image* temp = new sf::Image();
+					temp->loadFromFile("Graphics/" + std::string(iterator->value["image"].GetString()));
+
+					std::string name = iterator->name.GetString();
+					std::pair<int, sf::Image*> tempPair(std::stoi(name) + 0 + firstgid, temp);
+					this->tiles.insert(tempPair);
+
+					tile_properties_t tempProps = { std::stoi(name) + 0 + firstgid, NO_GROUP, false, "", "" };
+					if (mapFileDoc["tilesets"][i]["tileproperties"].HasMember(name.c_str()))
+					{
+						if (mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()].HasMember("wavy"))
+						{
+							tempProps.wavy = true;
+						}
+						if (mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()].HasMember("nextArea") &&
+							mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()].HasMember("nextAreaEntry"))
+						{
+							tempProps.nextArea = mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()]["nextArea"].GetString();
+							tempProps.nextAreaEntry = mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()]["nextAreaEntry"].GetString();
+						}
+						if (mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()].HasMember("group"))
+						{
+							std::string strValue = mapFileDoc["tilesets"][i]["tileproperties"][name.c_str()]["group"].GetString();
+							int intValue = std::stoi(strValue);
+							tempProps.group = (tile_groups)intValue;
+						}
+					}
+					std::pair<int, tile_properties_t> tempPropsPair(std::stoi(name) + 0 + firstgid, tempProps);
+					this->tileProperties.insert(tempPropsPair);
+
+					if (tempProps.wavy)
+					{
+						sf::Image* temp2 = new sf::Image();
+						temp2->loadFromFile("Graphics/" + std::string(iterator->value["image"].GetString()));
+						temp2->flipHorizontally();
+						std::pair<int, sf::Image*> tempPair2(std::stoi(name) + 0 + firstgid, temp2);
+						this->flippedTiles.insert(tempPair2);
+					}
+				}
 			}
 		}
 	}
 
-	this->mapTiles->setTexture(*this->texture);
+	this->groundTileStart = mapFileDoc["tilesets"][groundTileSet]["firstgid"].GetInt();
+	if (npcTileSet > -1)
+	{
+		this->npcTileStart = mapFileDoc["tilesets"][npcTileSet]["firstgid"].GetInt();
+	}
+	if (mobsTileSet > -1)
+	{
+		this->mobsTileStart = mapFileDoc["tilesets"][mobsTileSet]["firstgid"].GetInt();
+	}
+	if (collectTileSet > -1)
+	{
+		this->collectTileStart = mapFileDoc["tilesets"][collectTileSet]["firstgid"].GetInt();
+	}
+
+	for (auto iterator = this->data.begin(); iterator != this->data.end(); iterator++)
+	{
+		std::cout << iterator->first;
+		int* layerData = iterator->second;
+		sf::Texture* tempTexture = new sf::Texture();
+		tempTexture->create(this->width * this->tileWidth, this->height * this->tileHeight);
+		std::pair<std::string, sf::Texture*> tempPairTex(iterator->first, tempTexture);
+		this->tileTextures.insert(tempPairTex);
+
+		for (int y = 0; y < this->height; y += 1)
+		{
+			for (int x = 0; x < this->width; x += 1)
+			{
+				if (layerData[x + y * this->width] > 0 && layerData[x + y * this->width] < mapFileDoc["tilesets"][npcTileSet]["firstgid"].GetInt()
+					&& layerData[x + y * this->width] < mapFileDoc["tilesets"][mobsTileSet]["firstgid"].GetInt())
+				{
+					this->tileTextures[iterator->first]->update(*this->tiles[layerData[x + y * this->width]], x * this->tileWidth, y * this->tileHeight);
+					if (saveSystem.currentAreaEntry != "" && this->tileProperties[layerData[x + y * this->width]].nextAreaEntry != "")
+					{
+						if (saveSystem.currentAreaEntry == this->tileProperties[layerData[x + y * this->width]].nextAreaEntry)
+						{
+							saveSystem.x = x * this->tileWidth;
+							saveSystem.y = y * this->tileHeight - this->tileHeight / 2;
+						}
+					}
+				}
+				else if (layerData[x + y * this->width] >= mapFileDoc["tilesets"][npcTileSet]["firstgid"].GetInt() && layerData[x + y * this->width] < mapFileDoc["tilesets"][mobsTileSet]["firstgid"].GetInt())
+				{
+					Value& tileSet = mapFileDoc["tilesets"][npcTileSet];
+					int tile = layerData[x + y * this->width] - tileSet["firstgid"].GetInt();
+
+					base_npc* temp = new base_npc(speech, tileSet["tiles"][std::to_string(tile).c_str()]["image"].GetString(), this,
+						tileSet["tileproperties"][std::to_string(tile).c_str()]["text"].GetString(), x * this->tileWidth, y * this->tileHeight);
+					this->entityManager->Add("hilly", temp);
+					temp->offset(-(temp->getGlobalBounds().width - (float)this->tileWidth), -(temp->getGlobalBounds().height - (float)this->tileHeight));
+					layerData[x + y * this->width] = 0;
+				}
+				else if (layerData[x + y * this->width] >= mapFileDoc["tilesets"][mobsTileSet]["firstgid"].GetInt() && layerData[x + y * this->width] < mapFileDoc["tilesets"][collectTileSet]["firstgid"].GetInt())
+				{
+					Value& tileSet = mapFileDoc["tilesets"][mobsTileSet];
+					int tile = layerData[x + y * this->width] - tileSet["firstgid"].GetInt();
+
+					enemy* temp = NULL;
+					switch (tile)
+					{
+					default:
+						temp = new Mob1(this, x * this->tileWidth, y * this->tileHeight);
+						break;
+					}
+					this->entityManager->Add("mobby", temp);
+					temp->offset(-(temp->getGlobalBounds().width - (float)this->tileWidth), -(temp->getGlobalBounds().height - (float)this->tileHeight));
+					layerData[x + y * this->width] = 0;
+				}
+				else if (layerData[x + y * this->width] >= mapFileDoc["tilesets"][collectTileSet]["firstgid"].GetInt())
+				{
+					Value& tileSet = mapFileDoc["tilesets"][collectTileSet];
+					int tile = layerData[x + y * this->width] - tileSet["firstgid"].GetInt();
+
+					collectible* temp = NULL;
+					switch (tile)
+					{
+					case 1:
+						temp = new bronze_coin(this, x * this->tileWidth, y * this->tileHeight);
+						break;
+					case 3:
+						temp = new silver_coin(this, x * this->tileWidth, y * this->tileHeight);
+						break;
+					default:
+						temp = new guava(this, x * this->tileWidth, y * this->tileHeight);
+						break;
+					}
+					this->entityManager->Add("collectible", temp);
+					temp->offset(-(temp->getGlobalBounds().width - (float)this->tileWidth), -(temp->getGlobalBounds().height - (float)this->tileHeight));
+					layerData[x + y * this->width] = 0;
+				}
+			}
+		}
+
+		std::pair<std::string, sf::Sprite*> tempPairSpr(iterator->first, new sf::Sprite());
+		this->mapTiles.insert(tempPairSpr);
+
+		this->mapTiles[iterator->first]->setTexture(*this->tileTextures[iterator->first]);
+	}
+
 	mapFile.close();
 }
 
 sf::FloatRect Map::getGlobalBounds()
 {
-	return this->mapTiles->getGlobalBounds();
+	return this->mapTiles["Ground"]->getGlobalBounds();
 }
 
 void Map::move(float x, float y)
 {
-	this->mapTiles->move(x, y);
+	for (auto it = this->mapTiles.begin(); it != mapTiles.end(); it++)
+	{
+		it->second->move(x, y);
+	}
 	this->background->move(x * 0.5f, y * 0.5f);
 }
 
@@ -126,17 +266,58 @@ void Map::move(sf::Vector2f amount)
 }
 
 
+bool flip[] = { false, false, false, false, false, false };
+
 void Map::Update(sf::RenderWindow* window)
 {
+	sf::Time elapsed = this->timer.getElapsedTime();
+	if (elapsed.asMilliseconds() > 16 * 15)
+	{
+		int count = 0;
+		for (auto it = this->data.begin(); it != this->data.end(); it++)
+		{
+			int* layerData = this->data[it->first];
+			for (int y = 0; y < this->height; y += 1)
+			{
+				for (int x = 0; x < this->width; x += 1)
+				{
+					int tile = layerData[x + y * this->width];
+					if (tile > 0)
+					{
+						if (this->tileProperties[tile].wavy)
+						{
+							if (flip[count])
+							{
+								this->tileTextures[it->first]->update(*this->flippedTiles[tile], x * this->tileWidth, y * this->tileHeight);
+							}
+							else
+							{
+								this->tileTextures[it->first]->update(*this->tiles[tile], x * this->tileWidth, y * this->tileHeight);
+							}
+						}
+					}
+				}
+				if (y < this->height - 1)
+				{
+					flip[count] = !flip[count];
+				}
+			}
+			count += 1;
+		}
+		timer.restart();
+	}
 }
 
 void Map::Render(sf::RenderWindow* window)
 {
 	window->draw(*this->background);
-	window->draw(*this->mapTiles);
+	for (auto it = this->mapTiles.begin(); it != this->mapTiles.end(); it++)
+	{
+		window->draw(*it->second);
+	}
 }
 
-int Map::CheckCollision(Entity* entity, Direction direction)
+tile_properties_t Map::CheckCollision(Entity* entity, Direction direction)
 {
 	entity->move(Entity::scroll);
 	int x = (int)(entity->getPosition().x + entity->getGlobalBounds().width / 2) / this->tileWidth;
@@ -177,15 +358,44 @@ int Map::CheckCollision(Entity* entity, Direction direction)
 		break;
 	}
 	entity->move(-Entity::scroll);
-	return this->data[x + y * this->width];
+	if (this->data["Ground"][x + y * this->width] == 0)
+	{
+		tile_properties_t temp = { 0, NO_GROUP, false };
+		return temp;
+	}
+	else
+	{
+		return this->tileProperties[this->data["Ground"][x + y * this->width]];
+	}
 }
 
 
 Map::~Map()
 {
+	for (auto iterator = this->tiles.begin(); iterator != this->tiles.end(); iterator++)
+	{
+		delete iterator->second;
+	}
+	for (auto iterator = this->flippedTiles.begin(); iterator != this->flippedTiles.end(); iterator++)
+	{
+		delete iterator->second;
+	}
+	for (auto iterator = this->data.begin(); iterator != this->data.end(); iterator++)
+	{
+		delete iterator->second;
+	}
+	for (auto iterator = this->tileTextures.begin(); iterator != this->tileTextures.end(); iterator++)
+	{
+		delete iterator->second;
+	}
+	for (auto iterator = this->mapTiles.begin(); iterator != this->mapTiles.end(); iterator++)
+	{
+		delete iterator->second;
+	}
+	this->data.clear();
 	this->tiles.clear();
-	delete this->texture;
-	delete this->mapTiles;
-	delete this->data;
+	this->tileProperties.clear();
+
+	delete this->backgroundTexture;
 	delete this->background;
 }

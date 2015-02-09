@@ -6,6 +6,8 @@
 #include "entity_manager.h"
 #include "speech.h"
 
+#include "SaveSystem.h"
+
 typedef enum
 {
 	NONE = -1,
@@ -19,6 +21,26 @@ typedef enum
 	BOTTOM_RIGHT = 7
 }Direction;
 
+typedef enum
+{
+	NO_GROUP = 0,
+	GROUND = 1,
+	WATER = 2,
+	LAVA = 3,
+	EXIT = 4,
+	FINISHED = 5
+}tile_groups;
+
+typedef struct
+{
+	int id;
+	tile_groups group;
+	bool wavy;
+	std::string nextArea, nextAreaEntry;
+}tile_properties_t;
+
+extern SaveSystem saveSystem;
+
 class Map
 {
 public:
@@ -28,7 +50,7 @@ public:
 
 	virtual void Update(sf::RenderWindow* window);
 
-	int CheckCollision(Entity* entity, Direction direction);
+	tile_properties_t CheckCollision(Entity* entity, Direction direction);
 
 	void Render(sf::RenderWindow* window);
 
@@ -46,13 +68,22 @@ protected:
 	int height = 0;
 	int tileWidth = 0;
 	int tileHeight = 0;
-	int* data;
+	std::unordered_map<std::string, int*> data;
 private:
-	sf::Texture* texture;
+	int groundTileStart;
+	int npcTileStart;
+	int mobsTileStart;
+	int collectTileStart;
+
 	sf::Texture* backgroundTexture;
-	std::unordered_map<std::string, sf::Image*> tiles;
+	std::unordered_map<int, tile_properties_t> tileProperties;
+	std::unordered_map<int, sf::Image*> tiles;
+	std::unordered_map<int, sf::Image*> flippedTiles;
 	EntityManager* entityManager;
-	sf::Sprite* mapTiles;
+	std::unordered_map<std::string, sf::Sprite*> mapTiles;
+	std::unordered_map<std::string, sf::Texture*> tileTextures;
 	sf::Sprite* background;
+
+	sf::Clock timer;
 };
 

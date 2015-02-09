@@ -5,9 +5,7 @@
 class Npc2 : public base_npc
 {
 public:
-	Npc2(Speech* speech, Map* map, float x, float y) : base_npc(speech, map, x, y)
+	Npc2(Speech* speech, Map* map, std::string text, float x, float y) : base_npc(speech, "sprites/ninja a.png", map, text, x, y)
 	{
-		this->text = "Welcome to the game!";
-		this->setColor(sf::Color::Magenta);
 	}
 };

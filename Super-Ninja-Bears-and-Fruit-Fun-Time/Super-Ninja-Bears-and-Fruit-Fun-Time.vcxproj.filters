@@ -37,6 +37,9 @@
     <Filter Include="Source Files\States">
       <UniqueIdentifier>{4f9b926f-5ce6-4864-9244-71ae97efc796}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Entities\Collectibles">
+      <UniqueIdentifier>{c5a55f83-b1f1-4628-9691-cb92208d855a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -83,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="win_screen.cpp">
       <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="collectible.cpp">
+      <Filter>Source Files\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -148,6 +154,18 @@
     </ClInclude>
     <ClInclude Include="npc1.h">
       <Filter>Header Files\Entities\NPC</Filter>
+    </ClInclude>
+    <ClInclude Include="guava.h">
+      <Filter>Header Files\Entities\Collectibles</Filter>
+    </ClInclude>
+    <ClInclude Include="collectible.h">
+      <Filter>Header Files\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="bronze_coin.h">
+      <Filter>Header Files\Entities\Collectibles</Filter>
+    </ClInclude>
+    <ClInclude Include="silver_coin.h">
+      <Filter>Header Files\Entities\Collectibles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
