@@ -74,6 +74,7 @@ protected:
 	int active;
 	int groupId;
 	int currentFrame;
+	float terminal_velocity;
 private:
 	int startFrame, endFrame;
 	sf::Clock timer;

@@ -1,7 +1,7 @@
 #include "main_game.h"
 #include "base_npc.h"
 
-base_npc::base_npc(Speech* speech, std::string gfx, Map* map, std::string text, float x, float y)
+base_npc::base_npc(Speech* speech, std::string gfx, Map* map, std::string characterName, std::string text, float x, float y)
 {
 	this->position = sf::Vector2f(x, y);
 	this->Load(gfx);
@@ -9,6 +9,7 @@ base_npc::base_npc(Speech* speech, std::string gfx, Map* map, std::string text, 
 	this->map = map;
 	this->groupId = 3;
 	this->speech = speech;
+	this->characterName = characterName;
 	this->text = text;
 }
 
@@ -31,7 +32,7 @@ void base_npc::Collision(Entity* entity)
 	switch (entity->GroupID())
 	{
 	case 2:
-		speech->SetText(this->text);
+		speech->SetText(this->characterName, this->text);
 		entity->Destroy();
 		break;
 	}

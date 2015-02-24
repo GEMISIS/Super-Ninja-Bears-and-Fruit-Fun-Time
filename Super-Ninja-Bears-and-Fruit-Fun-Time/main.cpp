@@ -17,10 +17,23 @@ int WINAPI WinMain(
 	)
 #endif
 {
-	sf::RenderWindow window(sf::VideoMode(1280, 768), "Super Ninja Bears and Fruit Fun Time");
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "Super Ninja Bears and Fruit Fun Time", sf::Style::Close);
+
+	sf::Clock updateTimer;
+
+	window.setVerticalSyncEnabled(true);
 
 	coreState.SetWindow(&window);
 	coreState.SetState(new main_menu());
+
+#ifdef _DEBUG
+	sf::Clock fpsTimer;
+	sf::Font fpsFont;
+	fpsFont.loadFromFile("Graphics/font.ttf");
+	sf::Text fpsText("FPS: 0", fpsFont);
+	fpsText.setColor(sf::Color::Red);
+	fpsText.setPosition(0, window.getSize().y - fpsText.getGlobalBounds().height - 12);
+#endif
 
 	// run the program as long as the window is open
 	while (window.isOpen())
@@ -36,17 +49,27 @@ int WINAPI WinMain(
 
 		window.clear(sf::Color::Black);
 
-		coreState.Update();
-		coreState.Render();
-
-		window.display();
+		if (updateTimer.getElapsedTime().asMicroseconds() >= 0)
+		{
+			if (window.hasFocus())
+			{
+				coreState.Update();
+				coreState.Render();
+#ifdef _DEBUG
+				window.draw(fpsText);
+#endif
+				window.display();
+			}
+			updateTimer.restart();
+#ifdef _DEBUG
+			fpsText.setString("FPS: " + std::to_string(1000000.0f / fpsTimer.restart().asMicroseconds()));
+#endif
+		}
 
 		if (quitGame)
 		{
 			window.close();
 		}
-
-		Sleep(5);
 	}
 
 	return 0;

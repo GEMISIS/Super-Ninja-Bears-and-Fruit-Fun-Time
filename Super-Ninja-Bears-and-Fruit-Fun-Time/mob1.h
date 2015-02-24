@@ -2,12 +2,16 @@
 
 #include "enemy.h"
 
+// The walker.
+
+#define MOB1_SPEED 4
+
 class Mob1 : public enemy
 {
 public:
-	Mob1(Map* map, float x, float y) : enemy(map, "sprites/ninja.png", x, y, sf::IntRect(0, 0, 88, 88))
+	Mob1(Map* map, float x, float y, int health, int damage) : enemy(map, "sprites/ninja.png", x, y, health, damage, sf::IntRect(0, 0, 88, 88))
 	{
-		this->velocity = sf::Vector2f(-1, 0);
+		this->velocity = sf::Vector2f(-MOB1_SPEED, 0);
 		this->Animate(0, 4);
 		this->yOffset = -8;
 		this->fps = 16 * 5;

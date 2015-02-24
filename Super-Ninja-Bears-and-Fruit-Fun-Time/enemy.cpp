@@ -1,14 +1,15 @@
 #include "main_game.h"
 #include "enemy.h"
 
-enemy::enemy(Map* map, std::string gfx, float x, float y, sf::IntRect rect)
+enemy::enemy(Map* map, std::string gfx, float x, float y, int health, int damage, sf::IntRect rect)
 {
 	this->position = sf::Vector2f(x, y);
 	this->Load(gfx, rect);
 	this->setPosition(x, y);
 	this->map = map;
 	this->groupId = 5;
-	this->health = 1;
+	this->health = health;
+	this->damage = damage;
 	this->velocity = sf::Vector2f(0, 0);
 }
 

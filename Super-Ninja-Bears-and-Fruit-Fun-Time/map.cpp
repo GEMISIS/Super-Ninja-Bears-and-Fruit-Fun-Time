@@ -53,15 +53,38 @@ void Map::Load(std::string filename, std::string backgroundFile, Speech* speech)
 		for (int i = 0; i < dataArray.Capacity(); i += 1)
 		{
 			Value& data = dataArray[i]["data"];
-
 			int* tempData = new int[this->width * this->height];
-			for (int y = 0; y < this->height; y += 1)
+
+			if (dataArray[i].HasMember("actives") && dataArray[i]["actives"].IsArray())
 			{
-				for (int x = 0; x < this->width; x += 1)
+				Value& actives = dataArray[i]["actives"];
+
+				for (int y = 0; y < this->height; y += 1)
 				{
-					tempData[x + y * this->width] = data[x + y * this->width].GetInt();
+					for (int x = 0; x < this->width; x += 1)
+					{
+						if (actives.Capacity() > (x + y * this->width) && !actives[x + y * this->width].GetBool())
+						{
+							tempData[x + y * this->width] = 0;
+						}
+						else
+						{
+							tempData[x + y * this->width] = data[x + y * this->width].GetInt();
+						}
+					}
 				}
 			}
+			else
+			{
+				for (int y = 0; y < this->height; y += 1)
+				{
+					for (int x = 0; x < this->width; x += 1)
+					{
+						tempData[x + y * this->width] = data[x + y * this->width].GetInt();
+					}
+				}
+			}
+
 			std::cout << i << std::endl;
 			std::pair<std::string, int*> tempPair(dataArray[i]["name"].GetString(), tempData);
 			this->data.insert(tempPair);
@@ -190,8 +213,20 @@ void Map::Load(std::string filename, std::string backgroundFile, Speech* speech)
 					Value& tileSet = mapFileDoc["tilesets"][npcTileSet];
 					int tile = layerData[x + y * this->width] - tileSet["firstgid"].GetInt();
 
+					std::string characterName = "hilly";
+					if (tileSet.HasMember("tileproperties"))
+					{
+						if (tileSet["tileproperties"].HasMember(std::to_string(tile).c_str()))
+						{
+							if (tileSet["tileproperties"][std::to_string(tile).c_str()].HasMember("characterName"))
+							{
+								characterName = tileSet["tileproperties"][std::to_string(tile).c_str()]["characterName"].GetString();
+							}
+						}
+					}
 					base_npc* temp = new base_npc(speech, tileSet["tiles"][std::to_string(tile).c_str()]["image"].GetString(), this,
-						tileSet["tileproperties"][std::to_string(tile).c_str()]["text"].GetString(), x * this->tileWidth, y * this->tileHeight);
+						characterName, tileSet["tileproperties"][std::to_string(tile).c_str()]["text"].GetString(), 
+						x * this->tileWidth, y * this->tileHeight);
 					this->entityManager->Add("hilly", temp);
 					temp->offset(-(temp->getGlobalBounds().width - (float)this->tileWidth), -(temp->getGlobalBounds().height - (float)this->tileHeight));
 					layerData[x + y * this->width] = 0;
@@ -201,11 +236,34 @@ void Map::Load(std::string filename, std::string backgroundFile, Speech* speech)
 					Value& tileSet = mapFileDoc["tilesets"][mobsTileSet];
 					int tile = layerData[x + y * this->width] - tileSet["firstgid"].GetInt();
 
+					int type = 0;
+					int health = 1;
+					int damage = 1;
+					if (tileSet.HasMember("tileproperties"))
+					{
+						if (tileSet["tileproperties"].HasMember(std::to_string(tile).c_str()))
+						{
+							if (tileSet["tileproperties"][std::to_string(tile).c_str()].HasMember("health"))
+							{
+								health = tileSet["tileproperties"][std::to_string(tile).c_str()]["health"].GetInt();
+							}
+							if (tileSet["tileproperties"][std::to_string(tile).c_str()].HasMember("damage"))
+							{
+								damage = tileSet["tileproperties"][std::to_string(tile).c_str()]["damage"].GetInt();
+							}
+							if (tileSet["tileproperties"][std::to_string(tile).c_str()].HasMember("type"))
+							{
+								type = tileSet["tileproperties"][std::to_string(tile).c_str()]["type"].GetInt();
+							}
+						}
+					}
+
 					enemy* temp = NULL;
-					switch (tile)
+
+					switch ((type == 0) ? tile : type)
 					{
 					default:
-						temp = new Mob1(this, x * this->tileWidth, y * this->tileHeight);
+						temp = new Mob1(this, x * this->tileWidth, y * this->tileHeight, health, damage);
 						break;
 					}
 					this->entityManager->Add("mobby", temp);
@@ -217,8 +275,20 @@ void Map::Load(std::string filename, std::string backgroundFile, Speech* speech)
 					Value& tileSet = mapFileDoc["tilesets"][collectTileSet];
 					int tile = layerData[x + y * this->width] - tileSet["firstgid"].GetInt();
 
+					int type = 0;
+					if (tileSet.HasMember("tileproperties"))
+					{
+						if (tileSet["tileproperties"].HasMember(std::to_string(tile).c_str()))
+						{
+							if (tileSet["tileproperties"][std::to_string(tile).c_str()].HasMember("type"))
+							{
+								type = tileSet["tileproperties"][std::to_string(tile).c_str()]["type"].GetInt();
+							}
+						}
+					}
+
 					collectible* temp = NULL;
-					switch (tile)
+					switch ((type == 0) ? tile : type)
 					{
 					case 1:
 						temp = new bronze_coin(this, x * this->tileWidth, y * this->tileHeight);
@@ -313,48 +383,55 @@ void Map::Render(sf::RenderWindow* window)
 	window->draw(*this->background);
 	for (auto it = this->mapTiles.begin(); it != this->mapTiles.end(); it++)
 	{
-		window->draw(*it->second);
+		sf::Vector2f position = it->second->getPosition();
+		if (position.x + it->second->getGlobalBounds().width >= 0 &&
+			position.x <= window->getSize().x &&
+			position.y + it->second->getGlobalBounds().height >= 0 &&
+			position.y <= window->getSize().y)
+		{
+			window->draw(*it->second);
+		}
 	}
 }
 
-tile_properties_t Map::CheckCollision(Entity* entity, Direction direction)
+tile_properties_t Map::CheckCollision(Entity* entity, Direction direction, float offsetX, float offsetY)
 {
 	entity->move(Entity::scroll);
-	int x = (int)(entity->getPosition().x + entity->getGlobalBounds().width / 2) / this->tileWidth;
-	int y = (int)(entity->getPosition().y + entity->getGlobalBounds().height / 2) / this->tileHeight;
+	int x = (int)(entity->getPosition().x + offsetX + entity->getGlobalBounds().width / 2) / this->tileWidth;
+	int y = (int)(entity->getPosition().y + offsetY + entity->getGlobalBounds().height / 2) / this->tileHeight;
 	switch (direction)
 	{
 	case LEFT:
-		x = (int)(entity->getPosition().x + entity->getGlobalBounds().width) / this->tileWidth;
+		x = (int)(entity->getPosition().x - offsetX + entity->getGlobalBounds().width) / this->tileWidth;
 		y = (int)(entity->getPosition().y + entity->getGlobalBounds().height / 2) / this->tileHeight;
 		break;
 	case RIGHT:
-		x = (int)(entity->getPosition().x) / this->tileWidth;
+		x = (int)(entity->getPosition().x + offsetX) / this->tileWidth;
 		y = (int)(entity->getPosition().y + entity->getGlobalBounds().height / 2) / this->tileHeight;
 		break;
 	case UP:
 		x = (int)(entity->getPosition().x + entity->getGlobalBounds().width / 2) / this->tileWidth;
-		y = (int)(entity->getPosition().y) / this->tileHeight;
+		y = (int)(entity->getPosition().y - offsetY) / this->tileHeight;
 		break;
 	case DOWN:
 		x = (int)(entity->getPosition().x + entity->getGlobalBounds().width / 2) / this->tileWidth;
-		y = (int)(entity->getPosition().y + entity->getGlobalBounds().height) / this->tileHeight;
+		y = (int)(entity->getPosition().y + offsetY + entity->getGlobalBounds().height) / this->tileHeight;
 		break;
 	case TOP_LEFT:
-		x = (int)(entity->getPosition().x + entity->getGlobalBounds().width) / this->tileWidth;
-		y = (int)(entity->getPosition().y) / this->tileHeight;
+		x = (int)(entity->getPosition().x - offsetX + entity->getGlobalBounds().width) / this->tileWidth;
+		y = (int)(entity->getPosition().y - offsetY) / this->tileHeight;
 		break;
 	case TOP_RIGHT:
-		x = (int)(entity->getPosition().x) / this->tileWidth;
-		y = (int)(entity->getPosition().y) / this->tileHeight;
+		x = (int)(entity->getPosition().x + offsetX) / this->tileWidth;
+		y = (int)(entity->getPosition().y - offsetY) / this->tileHeight;
 		break;
 	case BOTTOM_LEFT:
-		x = (int)(entity->getPosition().x + entity->getGlobalBounds().width) / this->tileWidth;
-		y = (int)(entity->getPosition().y + entity->getGlobalBounds().height) / this->tileHeight;
+		x = (int)(entity->getPosition().x - offsetX + entity->getGlobalBounds().width) / this->tileWidth;
+		y = (int)(entity->getPosition().y + offsetY + entity->getGlobalBounds().height) / this->tileHeight;
 		break;
 	case BOTTOM_RIGHT:
-		x = (int)(entity->getPosition().x) / this->tileWidth;
-		y = (int)(entity->getPosition().y + entity->getGlobalBounds().height) / this->tileHeight;
+		x = (int)(entity->getPosition().x + offsetX) / this->tileWidth;
+		y = (int)(entity->getPosition().y + offsetY + entity->getGlobalBounds().height) / this->tileHeight;
 		break;
 	}
 	entity->move(-Entity::scroll);
@@ -368,7 +445,6 @@ tile_properties_t Map::CheckCollision(Entity* entity, Direction direction)
 		return this->tileProperties[this->data["Ground"][x + y * this->width]];
 	}
 }
-
 
 Map::~Map()
 {

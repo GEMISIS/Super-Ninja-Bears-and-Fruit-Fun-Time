@@ -5,7 +5,7 @@
 class Mob2 : public enemy
 {
 public:
-	Mob2(Map* map, float x, float y) : enemy(map, "sprites/ninja b.png", x, y)
+	Mob2(Map* map, float x, float y, int health, int damage) : enemy(map, "sprites/ninja b.png", x, y, health, damage)
 	{
 		this->health = 3;
 	}

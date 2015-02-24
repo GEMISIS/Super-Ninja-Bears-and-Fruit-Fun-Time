@@ -4,6 +4,7 @@ sf::Vector2f Entity::scroll(0, 0);
 
 Entity::Entity()
 {
+	this->terminal_velocity = 10;
 	this->texture = new sf::Texture();
 	this->active = 1;
 	this->groupId = 0;
@@ -72,6 +73,11 @@ void Entity::Collision(Entity* entity)
 
 bool Entity::CheckCollision(Entity* entity)
 {
+	sf::Vector2f distance = this->getPosition() - entity->getPosition();
+	if (distance.x > this->getGlobalBounds().width || distance.y > this->getGlobalBounds().height)
+	{
+		return false;
+	}
 	return this->getGlobalBounds().intersects(entity->getGlobalBounds());
 }
 

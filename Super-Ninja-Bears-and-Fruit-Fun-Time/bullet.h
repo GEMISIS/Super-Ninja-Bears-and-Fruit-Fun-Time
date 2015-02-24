@@ -11,6 +11,7 @@ public:
 	void Collision(Entity* entity);
 protected:
 	sf::Vector2f position;
+	float speed;
 private:
 	Map* map;
 	float distance;

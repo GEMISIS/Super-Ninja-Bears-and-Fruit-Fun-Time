@@ -45,7 +45,7 @@ void main_game::Update(sf::RenderWindow* window)
 {
 	this->lives->SetValue(((main_guy*)this->manager->Get("main_guy"))->health);
 	this->score->SetValue(saveSystem.GetScore());
-	if (this->paused)
+	if (this->paused && !this->speech->speaking)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return) && !this->enterKey)
 		{
@@ -57,14 +57,7 @@ void main_game::Update(sf::RenderWindow* window)
 			return;
 		}
 	}
-	else if (this->speech->speaking)
-	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Return) && !this->enterKey)
-		{
-			this->speech->speaking = false;
-		}
-	}
-	else
+	else if (!this->speech->speaking)
 	{
 		if (!this->manager->Update(window))
 		{

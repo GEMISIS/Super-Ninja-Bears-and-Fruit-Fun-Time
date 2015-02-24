@@ -28,9 +28,6 @@
     <Filter Include="Header Files\Entities\Mob">
       <UniqueIdentifier>{1bee317e-cfeb-4a4f-a0e6-7d63fa213b7f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Entities\NPC">
-      <UniqueIdentifier>{f04ed966-e43b-4e6d-88ac-0c14d6c9c08f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Entities">
       <UniqueIdentifier>{b135f556-73e3-4003-9657-778e71fe91cd}</UniqueIdentifier>
     </Filter>
@@ -148,12 +145,6 @@
     </ClInclude>
     <ClInclude Include="mob2.h">
       <Filter>Header Files\Entities\Mob</Filter>
-    </ClInclude>
-    <ClInclude Include="npc2.h">
-      <Filter>Header Files\Entities\NPC</Filter>
-    </ClInclude>
-    <ClInclude Include="npc1.h">
-      <Filter>Header Files\Entities\NPC</Filter>
     </ClInclude>
     <ClInclude Include="guava.h">
       <Filter>Header Files\Entities\Collectibles</Filter>

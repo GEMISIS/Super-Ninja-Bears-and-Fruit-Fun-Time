@@ -2,6 +2,7 @@
 
 Bullet::Bullet(Map* map, float x, float y, float direction, float distance)
 {
+	this->speed = 1;
 	this->active = 1;
 	this->groupId = 2;
 	this->Load("sprites/shuriken.png");
@@ -18,9 +19,9 @@ Bullet::Bullet(Map* map, float x, float y, float direction, float distance)
 
 bool Bullet::Update(sf::RenderWindow* window)
 {
-	this->position += this->velocity;
+	this->position += this->velocity * this->speed;
 	this->setPosition(this->position.x - Entity::scroll.x, this->position.y - Entity::scroll.y);
-	this->rotate(this->velocity.x);
+	this->rotate(this->velocity.x * this->speed);
 	if (this->getPosition().y <= 0 || this->getPosition().y + this->getGlobalBounds().height >= window->getSize().y)
 	{
 		this->Destroy();

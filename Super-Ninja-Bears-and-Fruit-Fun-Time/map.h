@@ -28,8 +28,11 @@ typedef enum
 	WATER = 2,
 	LAVA = 3,
 	EXIT = 4,
-	FINISHED = 5
+	FINISHED = 5,
+	ROPE = 6
 }tile_groups;
+
+#define LAVA_KNOCKBACK 8
 
 typedef struct
 {
@@ -50,7 +53,7 @@ public:
 
 	virtual void Update(sf::RenderWindow* window);
 
-	tile_properties_t CheckCollision(Entity* entity, Direction direction);
+	tile_properties_t CheckCollision(Entity* entity, Direction direction, float offsetX = 0.0f, float offsetY = 0.0f);
 
 	void Render(sf::RenderWindow* window);
 

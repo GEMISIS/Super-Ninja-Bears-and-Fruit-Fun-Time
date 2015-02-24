@@ -81,6 +81,8 @@ bool EntityManager::Update(sf::RenderWindow* window)
 	return true;
 }
 
+#include <iostream>
+
 void EntityManager::Render(sf::RenderWindow* window, bool animate)
 {
 	for (auto& iterator : this->entities)
@@ -89,7 +91,14 @@ void EntityManager::Render(sf::RenderWindow* window, bool animate)
 		{
 			iterator.second->Render(window);
 		}
-		window->draw(*iterator.second);
+		sf::Vector2f position = iterator.second->getPosition();
+		if (position.x + iterator.second->getGlobalBounds().width >= 0 &&
+			position.x <= window->getSize().x &&
+			position.y + iterator.second->getGlobalBounds().height >= 0 &&
+			position.y <= window->getSize().y)
+		{
+			window->draw(*iterator.second);
+		}
 	}
 }
 
