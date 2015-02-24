@@ -49,7 +49,7 @@ int WINAPI WinMain(
 
 		window.clear(sf::Color::Black);
 
-		if (updateTimer.getElapsedTime().asMicroseconds() >= 0)
+		if (updateTimer.getElapsedTime().asMicroseconds() >= 16666)
 		{
 			if (window.hasFocus())
 			{
